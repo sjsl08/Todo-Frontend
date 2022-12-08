@@ -27,7 +27,7 @@ export const AuthorizationContextProvider = ({ children }) => {
 
             const headers = { "Authorization": `Bearer ${sessionStorage.getItem("token")}` }
 
-            const res = await axios.post("http://localhost:3008/auth/isloggedin", null, { headers })
+            const res = await axios.post("https://mytodoapp-9xnh.onrender.com/auth/isloggedin", null, { headers })
 
             const data = await res.data
             //console.log(data);
@@ -53,7 +53,7 @@ export const AuthorizationContextProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post("/auth/login", userData)
+            const res = await axios.post("https://mytodoapp-9xnh.onrender.com/auth/login", userData)
             setUser(await res.data.user)
 
             sessionStorage.setItem("token", await res.data.token)
@@ -71,7 +71,7 @@ export const AuthorizationContextProvider = ({ children }) => {
         }
 
         try {
-            const res = await axios.post("/auth/signup", userData)
+            const res = await axios.post("https://mytodoapp-9xnh.onrender.com/auth/signup", userData)
 
             // //console.log(res.data);
             navigate("/login", { replace: true })

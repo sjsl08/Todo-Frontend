@@ -42,7 +42,7 @@ export default function Home() {
     MyTodos()
     async function MyTodos() {
 
-      const res = await axios.get(`/todo/getTodo/${user._id}`)
+      const res = await axios.get(`https://mytodoapp-9xnh.onrender.com/todo/getTodo/${user._id}`)
 
       // const check = await res.data.res
       setTodo(await res.data.res)
@@ -63,7 +63,7 @@ export default function Home() {
     try {
       //console.log(newTask);t
       const headers = { "Authorization": `Bearer ${sessionStorage.getItem("token")}` }
-      const res = await axios.post(`/todo/createTodo`, newTask, { headers })
+      const res = await axios.post(`https://mytodoapp-9xnh.onrender.com/todo/createTodo`, newTask, { headers })
 
       toast.success("Todo Created")
       // const result = await res.data
